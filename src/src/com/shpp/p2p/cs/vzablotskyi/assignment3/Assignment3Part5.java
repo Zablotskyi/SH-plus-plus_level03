@@ -1,4 +1,4 @@
-package src.com.shpp.p2p.cs.vzablotskyi;
+package src.com.shpp.p2p.cs.vzablotskyi.assignment3;
 
 import org.w3c.dom.ls.LSOutput;
 

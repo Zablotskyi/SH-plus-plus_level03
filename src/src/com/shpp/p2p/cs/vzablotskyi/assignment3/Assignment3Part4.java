@@ -1,4 +1,4 @@
-package src.com.shpp.p2p.cs.vzablotskyi;
+package src.com.shpp.p2p.cs.vzablotskyi.assignment3;
 
 import acm.graphics.GRect;
 import com.shpp.cs.a.graphics.WindowProgram;
