@@ -6,17 +6,25 @@ import com.shpp.cs.a.graphics.WindowProgram;
 import java.awt.*;
 
 public class Assignment3Part6 extends WindowProgram {
-    private static final int DELAY = 30; // Частота кадрів
-    private double trajectoryRadius = 30; // Початковий радіус траєкторії
-    private static double CIRCLE_RADIUS;
-    private double angle = 0.0; // Початковий кут
-    long startTime = System.currentTimeMillis();
-    long duration = 5000; // 5 секунд (в мілісекундах)
+    private static final int DELAY = 50; // Frame rate
+    private double trajectoryRadius = 30; // Initial trajectory radius
+    private static double CIRCLE_RADIUS; // The radius of a circle
+    private double angle = 0.0; // Starting angle for moving circles
+    long startTime = System.currentTimeMillis(); // We get the current time, from which we will calculate the program execution time
+    long duration = 5000; // The cycle execution time is set so that the program fits into 5 seconds
 
     @Override
     public void run() {
+        drawingTheLogoOfTheOlympics();
+    }
+
+    /* Draw an improvisation of the Olympics emblem. Create five circles with colors that match the emblem. We specify the
+     coordinates of the initial circle, and for the subsequent circles we make an offset relative to these coordinates.
+      Use the angle of inclination to move our shapes around the circle.*/
+    private void drawingTheLogoOfTheOlympics() {
         CIRCLE_RADIUS = getWidth() / 7;
         while (System.currentTimeMillis() - startTime < duration) {
+            // Початкові координати Х та У для розміщення першого кола
             double x = (getWidth() - CIRCLE_RADIUS * 4) / 2 + trajectoryRadius * Math.cos(Math.toRadians(angle));
             double y = (getHeight() - CIRCLE_RADIUS * 1.5) / 2 + trajectoryRadius * Math.sin(Math.toRadians(angle));
 
@@ -45,8 +53,8 @@ public class Assignment3Part6 extends WindowProgram {
             greenCircle.setColor(Color.GREEN);
             add(greenCircle);
 
-            pause(DELAY);
-            angle += 3.0;
+            pause(DELAY); // Slow down our program by adding a pause
+            angle += 3.0; // Change the angle for moving shapes
         }
     }
 }
