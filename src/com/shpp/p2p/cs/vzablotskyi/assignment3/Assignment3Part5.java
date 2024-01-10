@@ -1,7 +1,5 @@
 package com.shpp.p2p.cs.vzablotskyi.assignment3;
 
-import org.w3c.dom.ls.LSOutput;
-
 public class Assignment3Part5 {
     private static final int INITIAL_AMOUNT_OF_MONEY_OF_THE_LUCKY_ONE = 0; // the initial value of the Lucky One's wallet
     private static final int INITIAL_AMOUNT_OF_MONEY_OF_THE_SWEATY = 1000; // the initial value of Sweaty's wallet
@@ -17,17 +15,20 @@ public class Assignment3Part5 {
     If it's heads, the sweaty man adds the exact same amount to the amount on the table.
     If the coin comes up tails, the lucky person gets everything on the table.
     If the lucky player ends up with less than $20, the game is repeated.*/
+    static int numberOfGame = 0;
     private static void whoWon() {
         int amountOfMoneyOnTheTable = AMOUNT_OF_MONEY_ON_THE_TABLE;
-        int numberOfGame = 0;
 
         while (LuckyOne.wallet < 20) {
             Sweaty.wallet--;
             String coinFlip = coinFlip();
+            numberOfGame++;
 
             if (coinFlip.equals("eagle")) {
                 Sweaty.wallet = LuckyOne.wallet + amountOfMoneyOnTheTable;
                 amountOfMoneyOnTheTable = amountOfMoneyOnTheTable * 2;
+                System.out.println("This game, you earned $ " + amountOfMoneyOnTheTable);
+                System.out.println("Your total is $ " + LuckyOne.wallet);
             } else if (coinFlip.equals("tails")) {
                 Sweaty.wallet--;
                 LuckyOne.wallet = LuckyOne.wallet + amountOfMoneyOnTheTable;
@@ -35,7 +36,6 @@ public class Assignment3Part5 {
                 System.out.println("Your total is $ " + LuckyOne.wallet);
                 amountOfMoneyOnTheTable = AMOUNT_OF_MONEY_ON_THE_TABLE;
             }
-            numberOfGame++;
         }
         System.out.println("It took " + numberOfGame + " games to earn $20");
     }
