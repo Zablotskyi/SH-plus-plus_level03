@@ -21,8 +21,7 @@ public class Assignment3Part5 {
         int amountOfMoneyOnTheTable = AMOUNT_OF_MONEY_ON_THE_TABLE;
         int numberOfGame = 0;
 
-        while (LuckyOne.wallet <= 20) {
-            numberOfGame++;
+        while (LuckyOne.wallet < 20) {
             Sweaty.wallet--;
             String coinFlip = coinFlip();
 
@@ -36,6 +35,7 @@ public class Assignment3Part5 {
                 System.out.println("Your total is $ " + LuckyOne.wallet);
                 amountOfMoneyOnTheTable = AMOUNT_OF_MONEY_ON_THE_TABLE;
             }
+            numberOfGame++;
         }
         System.out.println("It took " + numberOfGame + " games to earn $20");
     }
