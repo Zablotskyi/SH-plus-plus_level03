@@ -22,19 +22,17 @@ public class Assignment3Part5 {
         while (LuckyOne.wallet < 20) {
             Sweaty.wallet--;
             String coinFlip = coinFlip();
-            numberOfGame++;
 
             if (coinFlip.equals("eagle")) {
                 Sweaty.wallet = LuckyOne.wallet + amountOfMoneyOnTheTable;
                 amountOfMoneyOnTheTable = amountOfMoneyOnTheTable * 2;
-                System.out.println("This game, you earned $ " + amountOfMoneyOnTheTable);
-                System.out.println("Your total is $ " + LuckyOne.wallet);
             } else if (coinFlip.equals("tails")) {
                 Sweaty.wallet--;
                 LuckyOne.wallet = LuckyOne.wallet + amountOfMoneyOnTheTable;
                 System.out.println("This game, you earned $ " + amountOfMoneyOnTheTable);
                 System.out.println("Your total is $ " + LuckyOne.wallet);
                 amountOfMoneyOnTheTable = AMOUNT_OF_MONEY_ON_THE_TABLE;
+                numberOfGame++;
             }
         }
         System.out.println("It took " + numberOfGame + " games to earn $20");

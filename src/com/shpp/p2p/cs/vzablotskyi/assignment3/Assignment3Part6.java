@@ -24,7 +24,7 @@ public class Assignment3Part6 extends WindowProgram {
     private void drawingTheLogoOfTheOlympics() {
         CIRCLE_RADIUS = getWidth() / 7;
         while (System.currentTimeMillis() - startTime < duration) {
-            // Початкові координати Х та У для розміщення першого кола
+            // Initial X and Y coordinates for placing the first circle
             double x = (getWidth() - CIRCLE_RADIUS * 4) / 2 + trajectoryRadius * Math.cos(Math.toRadians(angle));
             double y = (getHeight() - CIRCLE_RADIUS * 1.5) / 2 + trajectoryRadius * Math.sin(Math.toRadians(angle));
 
